@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Server address="${server.ip.address}" port="8000" shutdown="shutdown-study">
+	<!-- firewall friendly jconsole remote access via service:jmx:rmi://<hostname>:8020/jndi/rmi://<hostname>:8015/jmxrmi 
+		using credentials defined in the jmx files -->
+	<!-- NOTE: THERE ARE ISSUES WITH THE JMX SERVICES ON MULTI-HOMED SERVERS, NEED TO INCREMENT THE PORT #s -->
+	<Listener className="org.apache.catalina.core.JasperListener" />
+	<Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" />
+	<Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener" />
+	<Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener" />
+	<GlobalNamingResources>
+		<!-- this user repository is used by the manager & host-manager applications -->
+		<Resource name="UserDatabase" 
+			auth="Container"
+			type="org.apache.catalina.UserDatabase" 
+			factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
+			pathname="${server.user.database}" />
+	</GlobalNamingResources>
+	<Service name="apps">
+		<Executor name="thread-pool" namePrefix="thread-pool"
+			maxThreads="150" minSpareThreads="10" maxIdleTime="10000" />
+		<Connector address="${server.ip.address}" port="8080"
+			connectionTimeout="20000" redirectPort="8443" executor="thread-pool"
+			protocol="org.apache.coyote.http11.Http11NioProtocol" useComet="false" 
+			proxyName="${server.proxy.name}" 
+			proxyPort="${server.proxy.port}"/>
+		<!-- jvmRoute attribute on Engine tag not needed if apache is configured 
+			to provide this -->
+		<Engine name="Catalina" defaultHost="localhost" jvmRoute="${server.jvm.route}">
+			<Host name="localhost" appBase="webapps" unpackWARs="true"
+				autoDeploy="true" />
+		</Engine>
+	</Service>
+</Server>

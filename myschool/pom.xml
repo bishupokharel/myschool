@@ -1,0 +1,399 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.bishu</groupId>
+	<artifactId>masterapp</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+ <properties>
+		<spring.version>3.0.6.RELEASE</spring.version>
+		<slf4j.version>1.5.6</slf4j.version>
+	</properties>
+	<dependencies>
+
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.context</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>com.springsource.org.apache.commons.logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.oxm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.web.servlet</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- AspectJ -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>com.springsource.org.aspectj.weaver</artifactId>
+			<version>1.6.8.RELEASE</version>
+		</dependency>
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>com.springsource.slf4j.api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>com.springsource.slf4j.org.apache.commons.logging</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>com.springsource.slf4j.log4j</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.log4j</groupId>
+			<artifactId>com.springsource.org.apache.log4j</artifactId>
+			<version>1.2.15</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- DataSource -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>com.springsource.org.apache.commons.dbcp</artifactId>
+			<version>1.2.2.osgi</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>com.springsource.org.apache.commons.pool</artifactId>
+			<version>1.5.3</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>com.springsource.org.hsqldb</artifactId>
+			<version>1.8.0.9</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- MySQL JDBC Connector -->
+		<!--
+			<dependency> <groupId>com.mysql.jdbc</groupId>
+			<artifactId>com.springsource.com.mysql.jdbc</artifactId>
+			<version>5.1.6</version> </dependency>
+		-->
+
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>com.springsource.org.hibernate</artifactId>
+			<version>3.3.2.GA</version>
+		</dependency>
+
+		<!-- JPA -->
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>com.springsource.javax.persistence</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<!-- Toplink JPA Provider -->
+		<dependency>
+			<groupId>com.oracle.toplink.essentials</groupId>
+			<artifactId>com.springsource.oracle.toplink.essentials</artifactId>
+			<version>2.0.0.b41-beta2</version>
+		</dependency>
+		<!-- Hibernate JPA Provider -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>com.springsource.org.hibernate.ejb</artifactId>
+			<version>3.4.0.GA</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>com.springsource.org.apache.commons.logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>com.springsource.org.hibernate.annotations</artifactId>
+			<version>3.4.0.GA</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>com.springsource.org.apache.commons.logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- Open JPA Provider -->
+		<dependency>
+			<groupId>org.apache.openjpa</groupId>
+			<artifactId>com.springsource.org.apache.openjpa</artifactId>
+			<version>1.1.0</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>com.springsource.org.apache.commons.logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>com.springsource.javax.servlet</artifactId>
+			<version>2.5.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>com.springsource.javax.servlet.jsp</artifactId>
+			<version>2.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>com.springsource.javax.servlet.jsp.jstl</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.taglibs</groupId>
+			<artifactId>com.springsource.org.apache.taglibs.standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+
+		<!-- Rome RSS -->
+		<dependency>
+			<groupId>com.sun.syndication</groupId>
+			<artifactId>com.springsource.com.sun.syndication</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.jdom</groupId>
+    		<artifactId>com.springsource.org.jdom</artifactId>
+    		<version>1.1.0</version>
+    		<scope>runtime</scope>
+		</dependency>
+				
+		<!-- JAXB -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>com.springsource.javax.xml.bind</artifactId>
+			<version>2.1.7</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		
+		   <!-- Apache Tiles -->
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-servlet</artifactId>
+            <version>2.1.4</version>
+            <optional>false</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-jsp</artifactId>
+            <version>2.1.4</version>
+            <optional>false</optional>
+        </dependency>
+
+		<!-- Test dependencies -->
+		<dependency>
+			<groupId>org.junit</groupId>
+			<artifactId>com.springsource.org.junit</artifactId>
+			<version>4.7.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>com.springsource.javax.transaction</artifactId>
+			<version>1.1.0</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+	<repositories>
+		<repository>
+			<id>com.springsource.repository.bundles.release</id>
+			<name>SpringSource Enterprise Bundle Repository - SpringSource Releases</name>
+			<url>http://repository.springsource.com/maven/bundles/release</url>
+		</repository>
+		<repository>
+			<id>com.springsource.repository.bundles.external</id>
+			<name>SpringSource Enterprise Bundle Repository - External Releases</name>
+			<url>http://repository.springsource.com/maven/bundles/external</url>
+		</repository>
+		<repository>
+			<id>com.springsource.repository.bundles.milestone</id>
+			<name>SpringSource Enterprise Bundle Repository - SpringSource Milestones</name>
+			<url>http://repository.springsource.com/maven/bundles/milestone</url>
+		</repository>
+		<repository>
+			<id>com.springsource.repository.bundles.snapshot</id>
+			<name>SpringSource Enterprise Bundle Repository - Snapshot Releases</name>
+			<url>http://repository.springsource.com/maven/bundles/snapshot</url>
+		</repository>
+	</repositories>
+	<profiles>
+		<profile>
+			<id>developer</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<properties>
+				<!-- by default the debugger is running on port 8081, change to something 
+					else if you want to -->
+				<debugger.port>8081</debugger.port>
+				<tomcat.version>1.0</tomcat.version>
+			</properties>
+
+			<build>
+				<plugins>
+
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<configuration>
+							<source>1.6</source>
+							<target>1.6</target>
+						</configuration>
+					</plugin>
+					
+					<plugin>
+						<groupId>org.codehaus.cargo</groupId>
+						<artifactId>cargo-maven2-plugin</artifactId>
+						<version>1.1.2</version>
+						<configuration>
+							<type>standalone</type>
+							<container>
+							
+								<containerId>tomcat7x</containerId>
+								
+								<!-- 
+								    <zipUrlInstaller>
+         							 <url>http://a-inet01:8100/apache-tomcat-7.0.25.zip</url>
+     							   </zipUrlInstaller>
+     							-->
+								<artifactInstaller>
+									<groupId>com.bishu</groupId>
+									<artifactId>tomcat7</artifactId>
+									<version>${tomcat.version}</version>
+								</artifactInstaller>
+								<systemProperties>
+									<!-- these get plugged into server.xml -->
+									<server.ip.address>127.0.0.1</server.ip.address>
+									<server.jvm.route>1</server.jvm.route>
+									<server.session.timeout>30</server.session.timeout>
+									<server.syslog.level>WARN</server.syslog.level>
+									<server.proxy.name></server.proxy.name>
+									<server.proxy.port></server.proxy.port>
+									<server.user.database>${project.build.directory}/cargo/installs/tomcat7-${tomcat.version}/conf/tomcat-users.xml</server.user.database>
+								</systemProperties>
+							</container>
+							<configuration>
+								<home>${project.build.directory}/cargo/configurations/tomcat7
+								</home>
+								<configfiles>
+									<configfile>
+										<file>${project.build.directory}/cargo/installs/tomcat7-${tomcat.version}/conf/server.xml
+										</file>
+										<todir>conf</todir>
+									</configfile>
+									<configfile>
+										<file>${project.build.directory}/cargo/installs/tomcat7-${tomcat.version}/conf/tomcat-users.xml
+										</file>
+										<todir>conf</todir>
+									</configfile>
+									<configfile>
+										<file>${project.build.directory}/../config/local/catalina.properties
+										</file>
+										<todir>conf</todir>
+									</configfile>
+									<configfile>
+										<file>${project.build.directory}/../config/local/server.xml
+                                        </file>
+										<todir>conf</todir>
+									</configfile>
+									<configfile>
+										<file>${project.build.directory}/../config/local/setenv.bat
+                                        </file>
+										<todir>bin</todir>
+									</configfile>
+									<configfile>
+										<file>${project.build.directory}/../config/local/setenv.sh
+                                        </file>
+										<todir>bin</todir>
+									</configfile>
+									<files>
+										<file>${project.build.directory}/../config/local/log4j.properties
+										</file>
+										<todir>../../installs/tomcat7-${tomcat.version}/lib</todir>
+										<tofile>log4j.properties</tofile>
+										<overwrite>true</overwrite>
+									</files>
+								</configfiles>
+								
+								<properties>
+									<cargo.jvmargs>
+										-Xdebug
+										-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=${debugger.port}
+										-Xnoagent
+										-Djava.compiler=NONE
+									</cargo.jvmargs>
+								</properties>
+							</configuration>
+						</configuration>
+					</plugin>
+					
+					
+					
+				<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<configuration>
+					<contextPath>/sample</contextPath>
+					<scanIntervalSeconds>500</scanIntervalSeconds>
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>9999</port>
+							<maxIdleTime>6000000</maxIdleTime>
+						</connector>
+					</connectors>
+				</configuration>
+			</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>

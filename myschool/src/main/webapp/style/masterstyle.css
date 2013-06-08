@@ -1,0 +1,59 @@
+
+body{
+margin:0;
+padding:0;
+line-height: 1.5em;
+}
+
+b{font-size: 110%;}
+em{color: red;}
+
+#maincontainer{
+width: 100%; /*Width of main container*/
+margin: 0 auto; 
+}
+
+#header{
+background: green;
+height: 15%;
+}
+
+#header h1{
+margin: 0;
+padding-top: 15px;
+}
+
+#middlecontent{
+min-height: 450px;
+margin-top: 0px;
+}
+
+#maincontent{
+margin-left: 12%; /*Set left margin to LeftColumnWidth*/
+}
+
+#leftcolumn{
+float: left;
+width: 12%; /*Width of left column*/
+background: #C8FC98;
+min-height: 500px;
+}
+
+#footer{
+clear: left;
+width: 100%;
+background: blue;
+color: #FFF;
+text-align: center;
+padding: 4px 0;
+height: 5%;
+}
+
+#footer a{
+color: #FFFF80;
+}
+
+.innertube{
+margin: 10px; /*Margins for inner DIV inside each column (to provide padding)*/
+margin-top: 0;
+}
