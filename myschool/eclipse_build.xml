@@ -10,7 +10,7 @@
 	<target name="sync">
 		<delete dir="./target/cargo/configurations/tomcat7/work"/>
 		<sync todir="./target/cargo/configurations/tomcat7/webapps/ROOT" overwrite="true">
-			<fileset dir="target/masterapp-1.0.0-SNAPSHOT"/>
+			<fileset dir="target/myschool-1.0.0-SNAPSHOT"/>
 		</sync>
 		<copy todir="./target/cargo/configurations/tomcat7/webapps/ROOT" overwrite="true">
 			<fileset dir="web"/>
